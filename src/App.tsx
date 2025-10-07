@@ -33,16 +33,20 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Auth />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/foods" element={<FoodManagement />} />
-          <Route path="/history" element={<History />} />
-          <Route path="/weight" element={<WeightTracking />} />
-          <Route path="/log-meal" element={<MealLogger />} />
-        </Routes>
+        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+          <Header />
+          <Box component="main" sx={{ flexGrow: 1, pt: 2, pb: 2 }}>
+            <Routes>
+              <Route path="/" element={<Auth />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/foods" element={<FoodManagement />} />
+              <Route path="/history" element={<History />} />
+              <Route path="/weight" element={<WeightTracking />} />
+              <Route path="/log-meal" element={<MealLogger />} />
+            </Routes>
+          </Box>
+        </Box>
       </Router>
     </ThemeProvider>
   );

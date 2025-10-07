@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import Header from './components/Header';
 import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
 import FoodManagement from './components/FoodManagement';
@@ -13,11 +14,17 @@ import MealLogger from './components/MealLogger';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#4caf50', // green
+      main: '#4caf50',
     },
     secondary: {
-      main: '#ff9800', // orange
+      main: '#ff9800',
     },
+    background: {
+      default: '#f5f5f5',
+    },
+  },
+  typography: {
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
   },
 });
 
@@ -26,6 +33,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
+        <Header />
         <Routes>
           <Route path="/" element={<Auth />} />
           <Route path="/dashboard" element={<Dashboard />} />

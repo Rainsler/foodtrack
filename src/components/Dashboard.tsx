@@ -1,10 +1,13 @@
 import React from 'react';
 import { Container, Typography, Grid, Card, CardContent, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { auth } from '../firebaseInit';
 import useAppStore from '../store';
 
 const Dashboard: React.FC = () => {
   const user = useAppStore((state) => state.user);
+  const setUser = useAppStore((state) => state.setUser);
   const mealEntries = useAppStore((state) => state.mealEntries);
   const weightEntries = useAppStore((state) => state.weightEntries);
 
@@ -18,11 +21,20 @@ const Dashboard: React.FC = () => {
 
   const latestWeight = weightEntries.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]?.weight || 0;
 
+  const handleLogout = async () => {
+    await signOut(auth);
+    setUser(null);
+    window.location.href = '/';
+  };
+
   return (
     <Container maxWidth="lg" sx={{ mt: 4 }}>
       <Typography variant="h4" gutterBottom>
         Welcome, {user?.name}!
       </Typography>
+      <Button onClick={handleLogout} variant="outlined" sx={{ mb: 2 }}>
+        Logout
+      </Button>
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
           <Card>

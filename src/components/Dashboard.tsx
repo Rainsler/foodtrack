@@ -52,6 +52,9 @@ const Dashboard: React.FC = () => {
           <Button component={Link} to="/weight" variant="contained" sx={{ mr: 2 }}>
             Track Weight
           </Button>
+          <Button component={Link} to="/log-meal" variant="contained" sx={{ mr: 2 }}>
+            Log Meal
+          </Button>
           <Button component={Link} to="/profile" variant="contained">
             Edit Profile
           </Button>

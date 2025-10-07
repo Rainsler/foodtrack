@@ -8,6 +8,7 @@ import FoodManagement from './components/FoodManagement';
 import History from './components/History';
 import WeightTracking from './components/WeightTracking';
 import Auth from './components/Auth';
+import MealLogger from './components/MealLogger';
 
 const theme = createTheme({
   palette: {
@@ -32,6 +33,7 @@ function App() {
           <Route path="/foods" element={<FoodManagement />} />
           <Route path="/history" element={<History />} />
           <Route path="/weight" element={<WeightTracking />} />
+          <Route path="/log-meal" element={<MealLogger />} />
         </Routes>
       </Router>
     </ThemeProvider>
